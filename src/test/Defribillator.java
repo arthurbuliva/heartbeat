@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Test class used to test various individual heart muscles.
  */
 package test;
 
@@ -21,7 +19,8 @@ public class Defribillator
     public static void main(String[] args)
     {
 
-        String eq = "x + 2";
+//        String eq = "x + 2";
+        String eq = "2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10";
 
         Map variables = new HashMap();
         variables.put("x", 13.0);
@@ -35,7 +34,7 @@ public class Defribillator
         int idx = new Random().nextInt(operands.length);
         String random = (operands[idx]);
 
-        String[] splitEq = eq.split(random);
+        String[] splitEq = eq.split(random, 2);
 
         System.out.println(Arrays.asList(splitEq));
 

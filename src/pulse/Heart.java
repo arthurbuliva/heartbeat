@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * The server application that runs and waits for input.
  */
 package pulse;
 
@@ -21,9 +19,7 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 import pacemaker.MammalianHeart;
 
 /**
- * @author bulivaa <arthur.buliva@unon.org>
- *
- * The end point of a signal
+ * The end point of a signal.
  */
 public class Heart extends UnicastRemoteObject
         implements MammalianHeart
@@ -34,6 +30,14 @@ public class Heart extends UnicastRemoteObject
         super(0);    // required to avoid the 'rmic' step, see below
     }
 
+    /**
+     * Solve the equation.
+     *
+     * @param equation The equation to be solved in a String object
+     * @param parameters The parameters of the equation in a Map object
+     * @return Solution to the equation
+     * @throws RemoteException
+     */
     @Override
     public String beat(String equation, Map<String, Double> parameters)
     {
@@ -51,6 +55,11 @@ public class Heart extends UnicastRemoteObject
         return String.valueOf(result);
     }
 
+    /**
+     * Reads the ID of this particular valve as stored in an ID file.
+     *
+     * @return
+     */
     private String getValveID()
     {
 
@@ -78,6 +87,12 @@ public class Heart extends UnicastRemoteObject
         }
     }
 
+    /**
+     * Star the heart.
+     * 
+     * @param args
+     * @throws Exception
+     */
     public static void main(String args[]) throws Exception
     {
         System.out.println("Pacemaker warming up...");

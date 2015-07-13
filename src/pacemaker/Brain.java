@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package pacemaker;
-
 /**
- * @author bulivaa <arthur.buliva@unon.org>
+ * This logs messages to file.
  */
-
+package pacemaker;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,8 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * class Brain
- Logs messages to file
+ * class Brain logs messages to file.
  */
 public class Brain
 {
@@ -44,6 +35,7 @@ public class Brain
 
     /**
      * Logs system events to a file
+     *
      * @param message The message to be logged
      */
     public static void logApplicationMessage(String message)
@@ -77,6 +69,7 @@ public class Brain
 
     /**
      * Logs the stack trace of an exception
+     *
      * @param exception The exception to log the stack trace of
      */
     public static void logExceptionStackTrace(Exception exception)
@@ -103,6 +96,7 @@ public class Brain
 
     /**
      * Gets the current system time
+     *
      * @return The time in the form yyyy-MM-dd HH:mm:ss
      */
     private static String getTimeStamp()
@@ -113,7 +107,9 @@ public class Brain
 
     /**
      * Gets the name of the logApplicationMessage file
-     * @return The logApplicationMessage file in the form yyyy-MM-dd.logApplicationMessage
+     *
+     * @return The logApplicationMessage file in the form
+     * yyyy-MM-dd.logApplicationMessage
      */
     public static String getLogFileName()
     {
@@ -122,7 +118,7 @@ public class Brain
         String fileName = "log/" + date + ".log";
 
         File logFile = new File("log");
-        if(!logFile.exists())
+        if (!logFile.exists())
         {
             logFile.mkdirs();
         }
@@ -130,4 +126,3 @@ public class Brain
         return fileName;
     }
 }
-

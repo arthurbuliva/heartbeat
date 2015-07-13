@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * The valves get called by the PaceMaker to open when needed.
  */
 package pacemaker;
 
 import java.util.Random;
 
-/**
- * @author bulivaa <arthur.buliva@unon.org>
- */
-/**
- * class Neuron Logs messages to file
- */
 public abstract class Valve
 {
 

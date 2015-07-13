@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * This is the client program.
+ *
+ * This should most likely be invoked through a web service
+ * so that it is transparent to the users
  */
 package pacemaker;
 
@@ -23,14 +24,32 @@ public class PaceMaker extends Brain
     private static String currentValve;
     private static MammalianHeart heart;
 
+    /**
+     * The main entry point of the client application
+     *
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception
     {
         logApplicationMessage("Pulse OK");
         ecg();
     }
 
+    /**
+     * The electrocardiogram machine distributes the pulses between the
+     * various valves
+     * 
+     * @throws Exception
+     */
     private static void ecg() throws Exception
     {
+        /**
+         * The various valves that are available.
+         *
+         * This Map object represents the available servers that may be used
+         * to help in solving the equations
+         */
         Map<String, String> pacesetter = new HashMap<>();
         pacesetter.put("1", "//10.100.150.43/RmiServer");
         pacesetter.put("2", "//127.0.0.1/RmiServer");
@@ -58,7 +77,7 @@ public class PaceMaker extends Brain
         int idx = new Random().nextInt(operands.length);
         String random = (operands[idx]);
 
-        String[] splitEq = eq.split(random);
+        String[] splitEq = eq.split(random, 2); // No splitting more than twice
 
 //        System.out.println(Arrays.asList(splitEq));
         // Evaluate the first part of the equation

@@ -11,7 +11,7 @@ import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
 /**
- * @author bulivaa <arthur.buliva@unon.org>
+ * @author Arthur Buliva <arthurbuliva@gmail.com>
  */
 public class Defribillator
 {

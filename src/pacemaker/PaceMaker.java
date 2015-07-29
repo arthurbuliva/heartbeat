@@ -12,12 +12,10 @@ import java.util.Map;
 /**
  * Receives requests and distributes them to the agents
  *
- * @author bulivaa <arthur.buliva@unon.org>
+ * @author Arthur Buliva <arthurbuliva@gmail.com>
  */
 public class PaceMaker extends Brain
 {
-
-   
 
     /**
      * The main entry point of the client application
@@ -34,6 +32,4 @@ public class PaceMaker extends Brain
 
         System.out.println(eq + " = " + EquationSolver.solve(eq, variables));
     }
-
-
 }

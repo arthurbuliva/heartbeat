@@ -16,14 +16,15 @@ import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
 /**
- *
- * @author abuliva
+ * @author Arthur Buliva <arthurbuliva@gmail.com>
  */
 public class EquationSolver
 {
 
     private static String currentValve;
     private static MammalianHeart heart;
+    private static int retries = 0;
+    private static final int MAX_RETRIES = 20;
 
     /**
      * The electrocardiogram machine distributes the pulses between the various
@@ -35,6 +36,8 @@ public class EquationSolver
      */
     public static String solve(String eq, Map variables)
     {
+        retries++;
+
         /**
          * The various valves that are available.
          *
@@ -109,7 +112,21 @@ public class EquationSolver
         }
         catch (java.rmi.ConnectException ex)
         {
-            return solve(eq, variables);
+            if (retries == MAX_RETRIES)
+            {
+                try
+                {
+                    throw new RemoteException("??\n[Cannot solve equation because no servers are available]");
+                }
+                catch (RemoteException noServersAvailable)
+                {
+                    return noServersAvailable.getMessage();
+                }
+            }
+            else
+            {
+                return solve(eq, variables);
+            }
         }
         catch (NotBoundException | MalformedURLException | RemoteException | NumberFormatException ex)
         {

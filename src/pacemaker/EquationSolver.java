@@ -116,7 +116,10 @@ public class EquationSolver
             {
                 try
                 {
-                    throw new RemoteException("??\n[Cannot solve equation because no servers are available]");
+                    String message = "??\n[Cannot solve equation "
+                            + "because no servers are available]";
+                    
+                    throw new RemoteException(message);
                 }
                 catch (RemoteException noServersAvailable)
                 {

@@ -49,8 +49,10 @@ public class Heart extends UnicastRemoteObject
         double result = e.evaluate();
 
         Logger.getLogger(Heart.class.getName()).log(Level.INFO, 
-                "Valve {0} invoked to solve equation {1}",
-                new Object[]{getValveID(), equation});
+                "Valve invoked to solve equation {0}",
+                new Object[]{equation});
+//                "Valve {0} invoked to solve equation {1}",
+//                new Object[]{getValveID(), equation});
 
         return String.valueOf(result);
     }

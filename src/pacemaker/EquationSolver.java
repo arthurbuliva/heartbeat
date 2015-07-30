@@ -45,11 +45,15 @@ public class EquationSolver
          * help in solving the equations
          */
         Map<String, String> pacesetter = new HashMap<>();
-        pacesetter.put("1", "//127.0.0.1/RmiServer");
-        pacesetter.put("2", "//127.0.0.1/RmiServer");
-        pacesetter.put("3", "//localhost/RmiServer");
-        pacesetter.put("4", "//127.0.0.1/RmiServer");
-        pacesetter.put("5", "//172.16.27.21/RmiServer");
+//        pacesetter.put("1", "//127.0.0.1/RmiServer");
+//        pacesetter.put("2", "//127.0.0.1/RmiServer");
+//        pacesetter.put("3", "//localhost/RmiServer");
+//        pacesetter.put("4", "//127.0.0.1/RmiServer");
+//        pacesetter.put("5", "//172.16.27.21/RmiServer");
+
+        pacesetter.put("1", "//172.16.27.252/RmiServer");
+        pacesetter.put("2", "//172.16.27.60/RmiServer");
+        pacesetter.put("3", "//172.16.27.13/RmiServer");
 
         try
         {
@@ -84,7 +88,8 @@ public class EquationSolver
             heart = (MammalianHeart) Naming.lookup(pacesetter.get(currentValve));
 
             double firstValue = Double.parseDouble(heart.beat(splitEq[0], variables));
-            System.out.println("Solved [" + eq + "] using valve: " + currentValve);
+            
+            System.out.println("Solved [" + splitEq[0] + "] using valve: " + currentValve);
 
             double finalValue = firstValue;
 
@@ -99,11 +104,11 @@ public class EquationSolver
                 {
                     case "\\*":
                         finalValue = firstValue * Double.parseDouble(heart.beat(splitEq[i], variables));
-//                        System.out.println("Solved using valve: " + currentValve);
+                        System.out.println("Solved [" + splitEq[1] + "] using valve: " + currentValve);
                         break;
                     case "/":
                         finalValue = firstValue / Double.parseDouble(heart.beat(splitEq[i], variables));
-//                        System.out.println("Solved using valve: " + currentValve);
+                        System.out.println("Solved [" + splitEq[1] + "] using valve: " + currentValve);
                         break;
                 }
             }

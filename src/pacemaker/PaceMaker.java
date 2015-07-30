@@ -28,7 +28,9 @@ public class PaceMaker extends Brain
         variables.put("x", 13.0);
         variables.put("y", 3.0);
 
-        String eq = "(x + y)/(x + y)";
+//        String eq = "(x + y)/(x + y)";
+        String eq = "3 * (sin(y) - 2) / (x - 2)";
+
 
         System.out.println(eq + " = " + EquationSolver.solve(eq, variables));
     }
